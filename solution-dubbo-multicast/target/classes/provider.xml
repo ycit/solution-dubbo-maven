@@ -1,0 +1,17 @@
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+       http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+
+    <dubbo:application name="multicast-provider"/>
+
+    <dubbo:registry address="multicast://224.8.6.7:1234"/>
+
+    <dubbo:protocol name="dubbo" port="2088"/>
+
+    <bean id="demoService" class="com.ycit.demo.impl.HiServiceImpl"/>
+
+    <dubbo:service interface="com.ycit.demo.api.HiService" ref="demoService"/>
+
+</beans>
